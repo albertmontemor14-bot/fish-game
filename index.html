@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#0c3b4a">
+<title>Deep Cast</title>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div id="err" style="display:none;position:fixed;left:0;right:0;top:0;z-index:99;background:#b00020;color:#fff;padding:10px 14px;font:16px/1.3 sans-serif"></div>
+<script>
+function showErr(m){var e=document.getElementById('err');e.style.display='block';e.textContent=m}
+window.addEventListener('error',function(ev){var t=ev.target;if(t&&t.tagName==='SCRIPT'||t&&t.tagName==='LINK'){showErr('Hindi na-load ang file: '+(t.src||t.href)+' (check ang pangalan at folder, o ang internet)')}else showErr('Error: '+ev.message+' ('+String(ev.filename||'').split('/').pop()+':'+ev.lineno+')')},true);
+</script>
+<div id="hud"><div class="pill" id="money"></div><div class="pill" id="rodn"></div><div class="pill" id="bag"></div><div class="pill" id="zn"></div><div class="pill" id="nav"></div><div class="pill" id="net"></div><button id="musbtn" class="pill" style="color:var(--deep);cursor:pointer">🎵 Music (M)</button><button id="bagbtn" class="pill" style="color:var(--deep);cursor:pointer">🎒 Bag (I)</button></div>
+<div id="hotbar"></div>
+<div id="chat"><div id="clog"></div><input id="cin" maxlength="200" placeholder="Mag-type... Enter = send · Esc = kansel" autocomplete="off" style="display:none"></div>
+<div id="ann"></div><div id="flash"></div><div id="msg"></div><div id="prompt"></div><div id="catch"></div>
+<div id="power"><b></b></div>
+<div id="reel"><div id="track"><div id="zone"></div><div id="fish"></div></div><div id="pg"><b></b></div></div>
+<div id="hint">Hold click to charge · release to cast · Space shakes the rod · hold click to reel · W/A/S/D walk or drive · right-drag or ←/→ to look · E interact · I backpack · 1-9 hotbar · T chat · M music · V NPC voice · F2 admin</div>
+<div id="shop" class="ov"><div class="panel">
+ <div class="ph"><h2>🎣 Fish Shop</h2><div class="r"><span class="pill" id="sm"></span><button id="close" style="background:var(--coral)">Close (E)</button></div></div>
+ <div class="npc"><div class="nav-em">😎</div><div><b>Kap Barracuda</b><div id="npct"></div></div></div>
+ <div class="tabs" id="tabs"><button class="tab" data-t="sell">Sell</button><button class="tab" data-t="rods">Rods</button><button class="tab" data-t="boats">Boats</button><button class="tab" data-t="dex">Fishdex</button></div>
+ <div id="tabc"></div></div></div>
+<div id="adm" class="ov" style="display:none;background:#0c3b4acc"><div class="panel">
+ <div class="ph"><h2>🛠 Admin Panel</h2><div class="r"><span class="pill" id="astat"></span><button id="aclose" style="background:var(--coral)">Close (F2)</button></div></div>
+ <div class="tabs" id="atabs"><button class="tab" data-at="me">Player</button><button class="tab" data-at="world">Server</button><button class="tab" data-at="plist">Players</button></div>
+ <div id="abody"></div></div></div>
+<div id="inv" class="ov" style="display:none;background:#0c3b4acc"><div class="panel">
+ <div class="ph"><h2>🎒 Backpack</h2><div class="r"><span class="pill" id="icount"></span><button id="iclose" style="background:var(--coral)">Close (I)</button></div></div>
+ <div class="tabs" id="ichips"></div>
+ <div class="ihint">Hold = hawakan ang isda · ☆ = favorite (nasa hotbar 2-9, protektado sa Sell) · Release = pakawalan</div>
+ <div id="ibody" class="ig"></div></div></div>
+<div id="start" class="ov"><h1>Deep<br>Cast</h1><p>Cast from the dock or sail out on your boat, reel in rare catches from Common to Mythical, sell them, and upgrade your rod and boat.</p><input id="pname" maxlength="16" placeholder="Pangalan mo" autocomplete="off">
+<input id="pserver" placeholder="Server (optional) hal. 192.168.1.5:3000" autocomplete="off">
+<button id="go" style="font-size:22px" disabled>Loading...</button></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+<script>setTimeout(function(){var g=document.getElementById('go');if(g&&g.disabled)showErr(typeof THREE==='undefined'?'Hindi na-load ang Three.js. Kailangan ng internet.':'Hindi pa nag-load ang game.js. Dapat nasa iisang folder ang index.html, style.css at game.js.')},3000)</script></body></html>
